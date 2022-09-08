@@ -29,7 +29,7 @@ public class WeatherForecastController : ControllerBase
         await using var memoryStr = new MemoryStream();
         await file.CopyToAsync(memoryStr);
 
-        var fileExt = Path.GetExtension(file.Name);
+        var fileExt = Path.GetExtension(file.FileName);
         var objName = $"{Guid.NewGuid()}.{fileExt}";
 
         var s3Obj = new S3Object() {
